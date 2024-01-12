@@ -103,10 +103,10 @@ star_loader.load('./Models/star/scene.gltf', (gltf) => {
 // document.body.appendChild(textDisplay3);
 
 const textDisplay3 = document.createElement('div');
-textDisplay3.textContent = 'Le BIOS est un projet réalisé dans le cadre d\'une étude sur les habitats temporaires responsables. Il s\'agit d\'une tente gonflable en biomatériaux prenant la forme d\'un oursin. Cette forme a été choisie pour ses avantages thermiques et son design innovant. Ce projet a été réalisé avec Claire LEFEZ';
+textDisplay3.textContent = 'Le BIOS est un projet réalisé dans le cadre d\'une étude sur les habitats temporaires responsables. Il s\'agit d\'une tente gonflable en biomatériaux prenant la forme d\'un oursin. Cette forme a été choisie pour ses avantages thermodynamiques et son design innovant. Ce projet a été réalisé avec Claire LEFEZ';
 textDisplay3.style.borderRadius = '8%'; // Définir le rayon pour créer une forme ronde
 textDisplay3.style.width = '300px'; // Définir la largeur (ajustez selon vos besoins)
-textDisplay3.style.height = '120px'; // Définir la hauteur (ajustez selon vos besoins)
+textDisplay3.style.height = '125px'; // Définir la hauteur (ajustez selon vos besoins)
 textDisplay3.style.overflow = 'hidden'; // Masquer le contenu qui dépasse de la forme ronde
 textDisplay3.style.backgroundColor = '#fffacd';
 textDisplay3.style.opacity = '0.8';
