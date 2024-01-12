@@ -14,7 +14,7 @@ const scene = new THREE.Scene(); // coprs de notre page, notre "univers"
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); // notre caméra = nos yeux
 // fov = 75 champ de vision, aspect ration entre largeur de l'écran et hauteur
 camera.position.x = 35
-camera.position.y = 35
+camera.position.y = 25
 camera.position.z = 35
     // Fetch the canvas element created in index.html, replace 'canvas' with the id of your canvas
 const canvas = document.getElementById('canvas');
@@ -204,7 +204,6 @@ createBubble(18, 40, 12, 0xff33e0);
 createBubble(4, 22, 12, 0xfad4bd);
 createBubble(-13, 13, 15, 0xfad4bd);
 createBubble(-9, 55, 2, 0xfad4bd);
-
 createBubble(8, 22, -12, 0x197c99);
 createBubble(-43, 13, -15, 0x197c99);
 createBubble(-19, 55, -2, 0x197c99);
@@ -270,7 +269,7 @@ function animateFish(fish) {
 }
 
 
-// COQUILLAGE
+// COQUILLAGE 1
 const shell_loader = new GLTFLoader();
 shell_loader.load('./Models/sea_shell/scene.gltf', (gltf) => {
     const model = gltf.scene; // Le modèle 3D est chargé ici
@@ -279,6 +278,25 @@ shell_loader.load('./Models/sea_shell/scene.gltf', (gltf) => {
     scene.add(model); // Ajout du modèle à la scène
 });
 
+
+// COQUILLAGE 2
+const shell2_loader = new GLTFLoader();
+shell2_loader.load('./Models/sea_shell/scene.gltf', (gltf) => {
+    const model = gltf.scene; // Le modèle 3D est chargé ici
+    model.position.set(5, 2, -30); // Ajuste la position du modèle
+    model.scale.set(90, 90, 90); // Ajuste l'échelle du modèle - Exemple : échelle uniforme
+    model.rotation.set(0, -Math.PI / 2, -Math.PI / 2);
+    scene.add(model); // Ajout du modèle à la scène
+});
+
+// COQUILLAGE 3
+const shell3_loader = new GLTFLoader();
+shell3_loader.load('./Models/sea_shell/scene.gltf', (gltf) => {
+    const model = gltf.scene; // Le modèle 3D est chargé ici
+    model.position.set(-15, 2, 35); // Ajuste la position du modèle
+    model.scale.set(55, 55, 55); // Ajuste l'échelle du modèle - Exemple : échelle uniforme
+    scene.add(model); // Ajout du modèle à la scène
+});
 
 // TORTUE
 const tt_loader = new GLTFLoader();

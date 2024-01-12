@@ -25,4 +25,6 @@ p {
     background-color: rgba(145, 246, 249, 0.8);
     padding: 12px;
     display: block;
+    border-radius: 8%;
+    font-weight: bold;
 }
