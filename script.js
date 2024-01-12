@@ -94,12 +94,20 @@ const star_loader = new GLTFLoader();
 let starModel;
 star_loader.load('./Models/star/scene.gltf', (gltf) => {
     starModel = gltf.scene; // Le modèle 3D est chargé ici
-    starModel.position.set(30, 0, 30); // Ajuste la position du modèle
-    starModel.scale.set(35, 35, 35); // Ajuste l'échelle du modèle - Exemple : échelle uniforme
+    starModel.position.set(0, 10, 12); // Ajuste la position du modèle
+    starModel.scale.set(20, 20, 20); // Ajuste l'échelle du modèle - Exemple : échelle uniforme
     scene.add(starModel); // Ajout du modèle à la scène
 });
+// const textDisplay3 = document.createElement('div');
+// textDisplay3.textContent = 'Le BIOS est un projet réalisé dans le cadre d\'une étude sur les habitats temporaires. Il s\'agit d\'une tente gonflable en biomatériaux prenant la forme d\'un oursin. Cette forme a été choisi pour ses avantages ain que des aspects de design';
+// document.body.appendChild(textDisplay3);
+
 const textDisplay3 = document.createElement('div');
-textDisplay3.textContent = 'Bienvenue dans l\'univers du BIOS Project';
+textDisplay3.textContent = 'Le BIOS est un projet réalisé dans le cadre d\'une étude sur les habitats temporaires responsables. Il s\'agit d\'une tente gonflable en biomatériaux prenant la forme d\'un oursin. Cette forme a été choisie pour ses avantages thermiques et son design innovant. Ce projet a été réalisé avec Claire LEFEZ';
+textDisplay3.style.borderRadius = '10%'; // Définir le rayon pour créer une forme ronde
+textDisplay3.style.width = '300px'; // Définir la largeur (ajustez selon vos besoins)
+textDisplay3.style.height = '200px'; // Définir la hauteur (ajustez selon vos besoins)
+textDisplay3.style.overflow = 'hidden'; // Masquer le contenu qui dépasse de la forme ronde
 document.body.appendChild(textDisplay3);
 
 // Création d'un raycaster
@@ -133,58 +141,6 @@ function onMouseClick3(event) {
 window.addEventListener('click', onMouseClick3, false);
 
 
-
-
-// SPHERE
-const geometry = new THREE.SphereGeometry(5, 32, 32);
-const material = new THREE.MeshPhysicalMaterial({
-    clearcoat: 0.3,
-    clearcoatRoughness: 0.25,
-    color: 0xffff24,
-    envMap: textureEquirec,
-    envMapIntensity: 1.0,
-    ior: 1.25,
-    iridescence: 0.8,
-    metalness: 0,
-    roughness: 0.2,
-    thickness: 5.0,
-    transmission: 1.0,
-});
-const mesh = new THREE.Mesh(geometry, material);
-// Redimensionnement du maillage pour le rendre plus petit
-mesh.scale.set(0.5, 0.5, 0.5); // Vous pouvez ajuster la taille selon vos besoins
-mesh.position.set(0, 16, 0);
-scene.add(mesh);
-// Création d'un élément div pour afficher le texte
-const textDisplay = document.createElement('div');
-textDisplay.textContent = 'BIOS Project = Bubbly Inflated Organic Structure';
-document.body.appendChild(textDisplay);
-// Création d'un raycaster
-const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
-// Fonction pour détecter les intersections avec le maillage
-function onMouseClick(event) {
-    event.preventDefault();
-    // Récupération des coordonnées du clic de la souris
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    raycaster.setFromCamera(mouse, camera); // Mettre à jour le rayon
-    const intersects = raycaster.intersectObject(mesh, true); // Vérifier les intersections avec le maillage
-    if (intersects.length > 0) {
-        // Si le maillage est cliqué, afficher le texte à l'emplacement du maillage
-        textDisplay.style.display = 'block';
-        textDisplay.style.top = `${event.clientY}px`;
-        textDisplay.style.left = `${event.clientX}px`;
-    } else {
-        // Cacher le texte si le clic n'est pas sur le maillage
-        textDisplay.style.display = 'none';
-    }
-}
-// Ajout d'un gestionnaire d'événements de clic sur la fenêtre
-window.addEventListener('click', onMouseClick, false);
-// FIN EXEMPLE DU COURS
-
-
 // BIOS
 const loader = new GLTFLoader();
 loader.load('./BIOS.gltf', (gltf) => {
@@ -203,9 +159,13 @@ function createBubble(x, y, z, lightColor) {
     const bubbleMaterial = new THREE.MeshPhongMaterial({
         color: 0xff66cc,
         transparent: true,
-        opacity: 0.8,
+        opacity: 1,
         emissive: lightColor,
-        emissiveIntensity: 1.5 // Augmentation de l'intensité de l'émission lumineuse
+        emissiveIntensity: 1.5, // Augmentation de l'intensité de l'émission lumineuse
+        envMap: textureEquirec,
+        envMapIntensity: 1.0,
+        roughness: 0.2,
+
     });
     const bubbleMesh = new THREE.Mesh(bubbleGeometry, bubbleMaterial);
     bubbleMesh.position.set(x, y, z);
@@ -329,7 +289,7 @@ tt_loader.load('Models/turtle/scene.gltf', (gltf) => {
     model.traverse((child) => {
         if (child.isMesh) {
             const textureLoader = new THREE.TextureLoader();
-            const texture = textureLoader.load('tt.jpg'); // Chemin de votre texture
+            const texture = textureLoader.load('tt2.jpg'); // Chemin de votre texture
             child.material.map = texture; // Application de la texture au matériau du maillage
         }
     });
