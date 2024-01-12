@@ -119,16 +119,12 @@ const mouse3 = new THREE.Vector2();
 // Fonction pour détecter les intersections avec le maillage
 function onMouseClick3(event) {
     event.preventDefault();
-
     // Récupération des coordonnées du clic de la souris
     mouse3.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse3.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
     raycaster3.setFromCamera(mouse3, camera); // Mettre à jour le rayon
-
     // Vérifier les intersections avec tous les maillages enfants du modèle
     const intersects = raycaster3.intersectObjects(starModel.children, true);
-
     if (intersects.length > 0) {
         // Si un maillage est cliqué, afficher le texte à l'emplacement du clic
         textDisplay3.style.display = 'block';
