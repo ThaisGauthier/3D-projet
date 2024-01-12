@@ -204,7 +204,9 @@ createBubble(8, 22, -12, 0x197c99);
 createBubble(-43, 13, -15, 0x197c99);
 createBubble(-19, 55, -2, 0x197c99);
 
-
+createBubble(18, 10, -32, 0xc9eaff);
+createBubble(-3, 12, -25, 0xc9eaff);
+createBubble(19, 42, -2, 0xc9eaff);
 
 // POISSONS MULTICO
 const colors = [
